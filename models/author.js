@@ -29,19 +29,6 @@ AuthorSchema.virtual("url").get(function () {
   return `/catalog/author/${this._id}`;
 });
 
-// // Virtual for a better date_of_birth format
-// AuthorSchema.virtual("formated_date_of_birth").get(function () {
-//   return this.date_of_birth ? 
-//   DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS): '?';
-// });
-
-// // Virtual for a better date_of_death format
-// AuthorSchema.virtual("formated_date_of_death").get(function () {
-//   return this.date_of_death ? 
-//   DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS): '?';
-// });
-
-
 
 // Virtual for formatted lifespan
 AuthorSchema.virtual("lifespan").get(function () {
