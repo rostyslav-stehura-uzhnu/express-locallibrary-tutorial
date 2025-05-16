@@ -1,14 +1,129 @@
+/* === GLOBAL STYLES === */
+:root {
+  --main-bg: #eaf4ff;
+  --glass-bg: rgba(255, 255, 255, 0.2);
+  --accent: #ff4e70;
+  --accent-dark: #e6375a;
+  --text-dark: #1a1a1a;
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  --border-radius: 20px;
+  --transition: 0.3s ease;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--main-bg);
+  color: var(--text-dark);
+  backdrop-filter: blur(6px);
+  overflow-x: hidden;
 }
 
+/* === CONTAINER === */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+
+/* === HEADINGS === */
+h1, h2, h3 {
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+/* === BUTTON === */
+.button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.9rem 1.8rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(255, 78, 112, 0.4);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.button:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+/* === GLASS CARD === */
+.card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* === LINKS === */
 a {
-  color: #00B7FF;
+  color: var(--accent);
+  text-decoration: none;
+  position: relative;
+  transition: var(--transition);
 }
 
-.sidebar-nav {
-  margin-top: 20px;
-  padding: 0;
-  list-style: none;
+a::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* === GRID SYSTEM === */
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* === FOOTER === */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* === ANIMATION === */
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
